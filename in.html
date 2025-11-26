@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USAV 2025 - Kasaragod Expatriates Association</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes wave {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(-25%);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        @keyframes pulseGlow {
+            from {
+                box-shadow: 0 0 20px rgba(168, 85, 247, 0.4),
+                            0 0 40px rgba(168, 85, 247, 0.2),
+                            0 0 60px rgba(168, 85, 247, 0.1);
+            }
+            to {
+                box-shadow: 0 0 30px rgba(168, 85, 247, 0.6),
+                            0 0 60px rgba(168, 85, 247, 0.4),
+                            0 0 90px rgba(168, 85, 247, 0.2);
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-100px) rotate(180deg);
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-200px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"></path></svg>');
+            animation: wave 25s linear infinite;
+        }
+        
+        .wave1 {
+            animation-duration: 25s;
+            opacity: 0.1;
+        }
+        
+        .wave2 {
+            animation-duration: 20s;
+            opacity: 0.15;
+            animation-delay: -5s;
+        }
+        
+        .wave3 {
+            animation-duration: 15s;
+            opacity: 0.2;
+            animation-delay: -2s;
+        }
+        
+        .wave4 {
+            animation-duration: 10s;
+            opacity: 0.25;
+            animation-delay: -5s;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                         0 0 40px rgba(255, 255, 255, 0.6),
+                         0 0 60px rgba(255, 255, 255, 0.4);
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite alternate;
+        }
+        
+        .slide-in {
+            animation: slideIn 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .bounce-in {
+            animation: bounceIn 1s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.3);
+        }
+        
+        .floating-note {
+            animation: float 10s linear infinite;
+            opacity: 0;
+        }
+        
+        .countdown-item {
+            transition: all 0.3s ease;
+        }
+        
+        .countdown-item:hover {
+            transform: scale(1.1) rotate(3deg);
+        }
+        
+        .info-card {
+            transition: all 0.5s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .performer-card {
+            transition: all 0.5s ease;
+        }
+        
+        .performer-card:hover {
+            transform: translateY(-15px) rotate(3deg);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .map-section {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+    padding: 25px;
+    background-color: #5f4091;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+}
+
+.map-section h3 {
+    color: #ff4d4d;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.map-link-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.map-link-container i {
+    color: #ff4d4d;
+    font-size: 1.5em;
+}
+
+.map-link {
+    display: inline-block;
+    background-color: #ff4d4d;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 77, 77, 0.3);
+}
+
+.map-link:hover {
+    background-color: #ff3333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 77, 77, 0.4);
+}
+
+.location-address {
+    color: #cccccc;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: 
+    /* Dark overlay to ensure text readability */
+    linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.9)),
+    /* Background image - festival lights */
+    url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREh_mGj58zStzE4hNwyfjSGg_2waW5vptOGA&s');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.map-section {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+  padding: 25px;
+  background-color: rgba(31, 31, 47, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+  backdrop-filter: blur(5px);
+}
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 relative overflow-x-hidden">
+    <!-- Animated Background Particles -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div id="particles-container"></div>
+    </div>
+
+    <!-- Animated Wave Background -->
+    <div class="absolute bottom-0 left-0 right-0 pointer-events-none">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="wave wave4"></div>
+    </div>
+
+    <!-- Floating Music Notes -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div id="music-notes"></div>
+    </div>
+
+    <!-- Audio Control -->
+    <button id="audio-control" class="fixed top-6 right-6 z-50 w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center text-white hover:bg-opacity-70 transition-all duration-300 backdrop-blur-sm border border-white border-opacity-20">
+        <i class="fas fa-play"></i>
+    </button>
+
+    <div class="relative z-10">
+        <!-- Header -->
+        <header class="relative py-6">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center justify-between backdrop-blur-md bg-black bg-opacity-30 rounded-2xl p-4 border border-white border-opacity-10 slide-in">
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center pulse-glow">
+                            <span class="text-white font-bold text-sm">KEA</span>
+                        </div>
+                        <div>
+                            <h1 class="text-white font-bold text-xl bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                                Kasaragod Expatriates Association
+                            </h1>
+                            <p class="text-gray-300 text-sm">Kuwait</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <i class="fas fa-volume-up text-white opacity-50 mx-auto mb-1 block"></i>
+                        <p class="text-gray-400 text-sm">Audio ON</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative py-20 overflow-hidden">
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center">
+                    <div class="bounce-in" style="animation-delay: 0.2s;">
+                        <h2 class="text-5xl md:text-7xl font-bold mb-4 glow-text">
+                            <span class="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+                                ഉത്സവ്‌ 2025
+                            </span>
+                        </h2>
+                    </div>
+                    
+                    <div class="slide-in" style="animation-delay: 0.4s;">
+                        <p class="text-2xl md:text-4xl text-white font-semibold mb-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                            കാസറഗോഡ്
+                        </p>
+                        <p class="text-xl md:text-2xl text-gray-300 mb-12">Musical Extravaganza</p>
+                    </div>
+                    
+                    <!-- Countdown Timer -->
+                    <div class="slide-in" style="animation-delay: 0.6s;">
+                        <div class="bg-black bg-opacity-40 rounded-3xl p-8 max-w-4xl mx-auto backdrop-blur-lg border border-white border-opacity-10 pulse-glow">
+                            <div class="flex items-center justify-center gap-3 mb-8">
+                                <i class="fas fa-clock text-purple-400 text-2xl"></i>
+                                <h3 class="text-2xl md:text-3xl text-white font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                                    Event Starts In
+                                </h3>
+                            </div>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6" id="countdown-timer">
+                                <!-- Countdown will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details -->
+        <section class="py-16 relative">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="info-card bg-white bg-opacity-5 backdrop-blur-xl rounded-2xl p-8 text-white border border-white border-opacity-10 slide-in" style="animation-delay: 1s;">
+                        <div class="flex items-start gap-6">
+                            <div class="bg-gradient-to-br from-purple-500 to-pink-500 p-4 rounded-2xl">
+                                <i class="fas fa-calendar-alt text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                                    Date & Time
+                                </h3>
+                                <p class="text-xl mb-1">December 5, 2025</p>
+                                <p class="text-xl text-gray-300">4:00 PM onwards</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card bg-white bg-opacity-5 backdrop-blur-xl rounded-2xl p-8 text-white border border-white border-opacity-10 slide-in" style="animation-delay: 1.2s;">
+  <div class="map-section">
+      <h3>📍 Event Location</h3>
+      <div class="map-link-container">
+          <i class="fas fa-map-marker-alt"></i>
+          <a href="https://maps.app.goo.gl/jScLhDD3SrkwULzJ7" target="_blank" class="map-link">
+            View on Google Maps
+          </a>
+      </div>
+      <p class="location-address">Indian Central School Open Auditorium (Abbassiya)</p>
+  </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performers Section -->
+        <section class="py-16 relative">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16 slide-in">
+                    <div class="bg-gradient-to-br from-purple-500 to-pink-500 p-4 rounded-2xl inline-block mb-6">
+                        <i class="fas fa-music text-white text-4xl"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        Featured Performers
+                    </h2>
+                    <p class="text-gray-300 text-xl">Star-Studded Musical Lineup</p>
+                </div>
+                
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="performer-card bg-white bg-opacity-5 backdrop-blur-xl rounded-2xl p-8 text-center border border-white border-opacity-10 bounce-in" style="animation-delay: 1.4s;">
+                            <div class="bg-gradient-to-br from-purple-500 to-pink-500 p-6 rounded-2xl inline-block mb-6">
+                                <i class="fas fa-users text-white text-4xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Live Singers</h3>
+                            <p class="text-gray-300 text-lg">Renowned Artists</p>
+                        </div>
+                        
+                        <div class="performer-card bg-white bg-opacity-5 backdrop-blur-xl rounded-2xl p-8 text-center border border-white border-opacity-10 bounce-in" style="animation-delay: 1.6s;">
+                            <div class="bg-gradient-to-br from-blue-500 to-purple-500 p-6 rounded-2xl inline-block mb-6">
+                                <i class="fas fa-guitar text-white text-4xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Live Band</h3>
+                            <p class="text-gray-300 text-lg">Professional Musicians</p>
+                        </div>
+                        
+                        <div class="performer-card bg-white bg-opacity-5 backdrop-blur-xl rounded-2xl p-8 text-center border border-white border-opacity-10 bounce-in" style="animation-delay: 1.8s;">
+                            <div class="bg-gradient-to-br from-pink-500 to-red-500 p-6 rounded-2xl inline-block mb-6">
+                                <i class="fas fa-compact-disc text-white text-4xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">DJ Performance</h3>
+                            <p class="text-gray-300 text-lg">Electrifying Mixes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsor Section -->
+        <section class="py-16 bg-black bg-opacity-30 relative">
+            <div class="container mx-auto px-4 text-center">
+                <div class="slide-in" style="animation-delay: 2s;">
+                    <p class="text-gray-300 text-xl mb-6">Sponsored by</p>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-12 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                        Ahmed AL MAGHRIBI
+                    </h3>
+                    
+                    <div class="border-t border-gray-600 pt-12 mt-12">
+                        <p class="text-gray-300 text-xl mb-8">Powered by</p>
+                        <div class="flex flex-col items-center gap-6">
+                            <div class="w-32 h-32 bg-gradient-to-br from-white to-gray-300 rounded-full flex items-center justify-center shadow-2xl pulse-glow">
+                                <div class="text-center">
+                                    <div class="text-blue-600 font-bold text-sm">ROYAL</div>
+                                    <div class="text-red-600 font-bold text-sm">CITY</div>
+                                    <div class="text-green-600 font-bold text-sm">CLINIC</div>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-white">Royal City Clinic</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black bg-opacity-60 py-8 relative">
+            <div class="container mx-auto px-4 text-center">
+                <p class="text-gray-300 mb-2">Reg. No: INDEMB.KWT.ASSN.189</p>
+                <p class="text-gray-400 text-lg mb-2">www.keakuwait.com</p>
+                <p class="text-gray-400 text-lg mt-4">Contact: 66720062</p>
+                <div class="mt-6 pt-6 border-t border-gray-700">
+                    <p class="text-gray-500 text-sm">Created by <span class="text-yellow-400 font-semibold">Rafeek Olavara</span></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Create background particles
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'absolute rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-20';
+                
+                const size = Math.random() * 30 + 10;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animation = `floatParticle ${15 + Math.random() * 20}s linear infinite`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Create floating music notes
+        function createMusicNotes() {
+            const container = document.getElementById('music-notes');
+            const notes = ['♪', '♫', '♬', '🎵', '🎶'];
+            
+            for (let i = 0; i < 12; i++) {
+                const note = document.createElement('div');
+                note.className = 'absolute text-purple-300 opacity-30 floating-note';
+                note.textContent = notes[Math.floor(Math.random() * notes.length)];
+                
+                note.style.left = `${Math.random() * 100}%`;
+                note.style.top = `${Math.random() * 100}%`;
+                note.style.fontSize = `${20 + Math.random() * 30}px`;
+                note.style.animationDuration = `${10 + Math.random() * 10}s`;
+                note.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(note);
+            }
+        }
+        
+        // Countdown timer
+        function updateCountdown() {
+            const eventDate = new Date('2025-12-05T16:00:00');
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            
+            let days = 0, hours = 0, minutes = 0, seconds = 0;
+            
+            if (distance > 0) {
+                days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            }
+            
+            const countdownContainer = document.getElementById('countdown-timer');
+            const units = [
+                { value: days, label: 'days' },
+                { value: hours, label: 'hours' },
+                { value: minutes, label: 'minutes' },
+                { value: seconds, label: 'seconds' }
+            ];
+            
+            countdownContainer.innerHTML = '';
+            
+            units.forEach((unit, index) => {
+                const unitElement = document.createElement('div');
+                unitElement.className = `countdown-item bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl p-4 md:p-6 shadow-2xl`;
+                unitElement.style.animationDelay = `${0.8 + index * 0.1}s`;
+                
+                unitElement.innerHTML = `
+                    <div class="text-3xl md:text-5xl font-bold text-white mb-2 text-shadow-lg">
+                        ${String(unit.value).padStart(2, '0')}
+                    </div>
+                    <div class="text-sm md:text-base text-purple-200 uppercase font-semibold tracking-wider">
+                        ${unit.label}
+                    </div>
+                `;
+                
+                countdownContainer.appendChild(unitElement);
+            });
+        }
+        
+        // Audio control
+        function setupAudioControl() {
+            const audioControl = document.getElementById('audio-control');
+            let isPlaying = false;
+            
+            // Create audio element
+            const audio = new Audio('https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3');
+            audio.loop = true;
+            
+            audioControl.addEventListener('click', () => {
+                if (isPlaying) {
+                    audio.pause();
+                    audioControl.innerHTML = '<i class="fas fa-play"></i>';
+                } else {
+                    audio.play().catch(e => {
+                        console.log('Audio play failed:', e);
+                        // If autoplay is blocked, we'll just update the UI
+                        audioControl.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                    });
+                    audioControl.innerHTML = '<i class="fas fa-pause"></i>';
+                }
+                isPlaying = !isPlaying;
+            });
+        }
+        
+        // Initialize everything when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            createMusicNotes();
+            updateCountdown();
+            setupAudioControl();
+            
+            // Update countdown every second
+            setInterval(updateCountdown, 1000);
+        });
+    </script>
+</body>
+</html>
