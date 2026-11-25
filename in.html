@@ -2,612 +2,857 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USAV 2025 - Kasaragod Expatriates Association</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        body {
-            overflow-x: hidden;
-        }
-        
-        @keyframes floatParticle {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        
-        @keyframes wave {
-            0% {
-                transform: translateX(0);
-            }
-            50% {
-                transform: translateX(-25%);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-        
-        @keyframes pulseGlow {
-            from {
-                box-shadow: 0 0 20px rgba(168, 85, 247, 0.4),
-                            0 0 40px rgba(168, 85, 247, 0.2),
-                            0 0 60px rgba(168, 85, 247, 0.1);
-            }
-            to {
-                box-shadow: 0 0 30px rgba(168, 85, 247, 0.6),
-                            0 0 60px rgba(168, 85, 247, 0.4),
-                            0 0 90px rgba(168, 85, 247, 0.2);
-            }
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes bounceIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.05);
-            }
-            70% {
-                transform: scale(0.9);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            50% {
-                transform: translateY(-100px) rotate(180deg);
-                opacity: 0.3;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(-200px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        
-        .wave {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"></path></svg>');
-            animation: wave 25s linear infinite;
-        }
-        
-        .wave1 {
-            animation-duration: 25s;
-            opacity: 0.1;
-        }
-        
-        .wave2 {
-            animation-duration: 20s;
-            opacity: 0.15;
-            animation-delay: -5s;
-        }
-        
-        .wave3 {
-            animation-duration: 15s;
-            opacity: 0.2;
-            animation-delay: -2s;
-        }
-        
-        .wave4 {
-            animation-duration: 10s;
-            opacity: 0.25;
-            animation-delay: -5s;
-        }
-        
-        .glow-text {
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
-                         0 0 40px rgba(255, 255, 255, 0.6),
-                         0 0 60px rgba(255, 255, 255, 0.4);
-        }
-        
-        .pulse-glow {
-            animation: pulseGlow 2s ease-in-out infinite alternate;
-        }
-        
-        .slide-in {
-            animation: slideIn 1s ease-out forwards;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-        
-        .bounce-in {
-            animation: bounceIn 1s ease-out forwards;
-            opacity: 0;
-            transform: scale(0.3);
-        }
-        
-        .floating-note {
-            animation: float 10s linear infinite;
-            opacity: 0;
-        }
-        
-        .countdown-item {
-            transition: all 0.3s ease;
-        }
-        
-        .countdown-item:hover {
-            transform: scale(1.1) rotate(3deg);
-        }
-        
-        .info-card {
-            transition: all 0.5s ease;
-        }
-        
-        .info-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-        
-        .performer-card {
-            transition: all 0.5s ease;
-        }
-        
-        .performer-card:hover {
-            transform: translateY(-15px) rotate(3deg);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-        .map-section {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TECHVISION | Low Voltage & Smart Systems</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #070d18;
+    --card: #101b2d;
+    --blue: #168cff;
+    --cyan: #00d4ff;
+    --white: #ffffff;
+    --muted: #9aaabd;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: white;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+/* NAVBAR */
+
+header {
+    position: fixed;
+    top: 0;
     width: 100%;
-    max-width: 800px;
-    margin-top: 20px;
-    padding: 25px;
-    background-color: #5f4091;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    margin-bottom: 20px;
+    z-index: 1000;
+    background: rgba(7,13,24,.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #1c2c40;
 }
 
-.map-section h3 {
-    color: #ff4d4d;
-    margin-bottom: 20px;
-    font-size: 1.8em;
+.navbar {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.map-link-container {
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--cyan);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #c5d2e2;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--cyan);
+}
+
+.nav-btn, .btn {
+    background: linear-gradient(90deg,var(--blue),var(--cyan));
+    color: white;
+    padding: 13px 24px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    background:
+    linear-gradient(90deg,rgba(7,13,24,.98),rgba(7,13,24,.55)),
+    url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1800')
+    center/cover;
+    padding-top: 100px;
+}
+
+.hero-content {
+    max-width: 720px;
+}
+
+.tag {
+    color: var(--cyan);
+    letter-spacing: 4px;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(42px,6vw,75px);
+    line-height: 1.12;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: var(--cyan);
+}
+
+.hero p {
+    color: #b4c2d4;
+    line-height: 1.9;
+    max-width: 600px;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
     gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    border: 1px solid var(--cyan);
+    color: white;
+    padding: 13px 24px;
+    border-radius: 5px;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 100px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading small {
+    color: var(--cyan);
+    letter-spacing: 3px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    margin: 15px 0;
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.about-text h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.feature {
+    padding: 15px;
+    background: var(--card);
+    border-left: 3px solid var(--cyan);
+}
+
+/* SERVICES */
+
+.services {
+    background: #0a1322;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.service-card {
+    background: var(--card);
+    border: 1px solid #1e3046;
+    padding: 30px;
+    border-radius: 10px;
+    transition: .35s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--cyan);
+    box-shadow: 0 10px 35px #008cff20;
+}
+
+.service-icon {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
     margin-bottom: 15px;
 }
 
-.map-link-container i {
-    color: #ff4d4d;
-    font-size: 1.5em;
+.service-card p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 14px;
 }
 
-.map-link {
-    display: inline-block;
-    background-color: #ff4d4d;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(255, 77, 77, 0.3);
+/* PRODUCTS */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
 }
 
-.map-link:hover {
-    background-color: #ff3333;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(255, 77, 77, 0.4);
+.product-card {
+    background: var(--card);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #1c2c40;
 }
 
-.location-address {
-    color: #cccccc;
-    font-size: 1.1em;
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.product-card:hover img {
+    transform: scale(1.06);
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info p {
+    color: var(--muted);
+    font-size: 13px;
     margin-top: 10px;
 }
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: 
-    /* Dark overlay to ensure text readability */
-    linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.9)),
-    /* Background image - festival lights */
-    url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREh_mGj58zStzE4hNwyfjSGg_2waW5vptOGA&s');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: #e0e0e0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  text-align: center;
 
+/* PROJECTS */
+
+.projects {
+    background: #0a1322;
 }
 
-.map-section {
-  width: 100%;
-  max-width: 800px;
-  margin-top: 20px;
-  padding: 25px;
-  background-color: rgba(31, 31, 47, 0.85);
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  margin-bottom: 20px;
-  backdrop-filter: blur(5px);
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
 }
-    </style>
+
+.project img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.project h3 {
+    margin-top: 15px;
+}
+
+/* STATS */
+
+.stats {
+    background: linear-gradient(100deg,#0865d9,#00a9ce);
+    padding: 55px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    text-align: center;
+    gap: 20px;
+}
+
+.stat h2 {
+    font-size: 40px;
+}
+
+.stat p {
+    margin-top: 10px;
+}
+
+/* CONTACT */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact-info p {
+    color: var(--muted);
+    line-height: 2;
+    margin: 20px 0;
+}
+
+.contact-form {
+    display: grid;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid #263a50;
+    color: white;
+    padding: 16px;
+    border-radius: 5px;
+    outline: none;
+    font-family: inherit;
+}
+
+.contact-form textarea {
+    height: 130px;
+    resize: vertical;
+}
+
+/* FOOTER */
+
+footer {
+    background: #040912;
+    padding: 35px 0;
+    text-align: center;
+    color: var(--muted);
+    border-top: 1px solid #1b2b3d;
+}
+
+footer span {
+    color: var(--cyan);
+}
+
+/* ANIMATIONS */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: .8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #20c76a;
+    color: white;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 28px;
+    z-index: 999;
+    box-shadow: 0 5px 25px #0008;
+}
+
+/* MOBILE */
+
+@media(max-width:900px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #0a1322;
+        padding: 25px;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-grid,
+    .project-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:550px) {
+    section {
+        padding: 70px 0;
+    }
+
+    .service-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .about-image img {
+        height: 280px;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+}
+</style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 relative overflow-x-hidden">
-    <!-- Animated Background Particles -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div id="particles-container"></div>
-    </div>
 
-    <!-- Animated Wave Background -->
-    <div class="absolute bottom-0 left-0 right-0 pointer-events-none">
-        <div class="wave wave1"></div>
-        <div class="wave wave2"></div>
-        <div class="wave wave3"></div>
-        <div class="wave wave4"></div>
-    </div>
+<body>
 
-    <!-- Floating Music Notes -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div id="music-notes"></div>
-    </div>
+<header>
+<div class="container navbar">
 
-    <!-- Audio Control -->
-    <button id="audio-control" class="fixed top-6 right-6 z-50 w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center text-white hover:bg-opacity-70 transition-all duration-300 backdrop-blur-sm border border-white border-opacity-20">
-        <i class="fas fa-play"></i>
-    </button>
+<a href="#home" class="logo">TECH<span>VISION.</span></a>
 
-    <div class="relative z-10">
-        <!-- Header -->
-        <header class="relative py-6">
-            <div class="container mx-auto px-4">
-                <div class="flex items-center justify-between backdrop-blur-md bg-black bg-opacity-30 rounded-2xl p-4 border border-white border-opacity-10 slide-in">
-                    <div class="flex items-center gap-4">
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center pulse-glow">
-                            <span class="text-white font-bold text-sm">KEA</span>
-                        </div>
-                        <div>
-                            <h1 class="text-white font-bold text-xl bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                                Kasaragod Expatriates Association
-                            </h1>
-                            <p class="text-gray-300 text-sm">Kuwait</p>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <i class="fas fa-volume-up text-white opacity-50 mx-auto mb-1 block"></i>
-                        <p class="text-gray-400 text-sm">Audio ON</p>
-                    </div>
-                </div>
-            </div>
-        </header>
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#products">Products</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 
-        <!-- Hero Section -->
-        <section class="relative py-20 overflow-hidden">
-            <div class="container mx-auto px-4 relative z-10">
-                <div class="text-center">
-                    <div class="bounce-in" style="animation-delay: 0.2s;">
-                        <h2 class="text-5xl md:text-7xl font-bold mb-4 glow-text">
-                            <span class="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-                                ഉത്സവ്‌ 2025
-                            </span>
-                        </h2>
-                    </div>
-                    
-                    <div class="slide-in" style="animation-delay: 0.4s;">
-                        <p class="text-2xl md:text-4xl text-white font-semibold mb-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                            കാസറഗോഡ്
-                        </p>
-                        <p class="text-xl md:text-2xl text-gray-300 mb-12">Musical Extravaganza</p>
-                    </div>
-                    
-                    <!-- Countdown Timer -->
-                    <div class="slide-in" style="animation-delay: 0.6s;">
-                        <div class="bg-black bg-opacity-40 rounded-3xl p-8 max-w-4xl mx-auto backdrop-blur-lg border border-white border-opacity-10 pulse-glow">
-                            <div class="flex items-center justify-center gap-3 mb-8">
-                                <i class="fas fa-clock text-purple-400 text-2xl"></i>
-                                <h3 class="text-2xl md:text-3xl text-white font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                                    Event Starts In
-                                </h3>
-                            </div>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6" id="countdown-timer">
-                                <!-- Countdown will be populated by JavaScript -->
-                            </div>
-                        </div>
-                            <img src="https://scontent.fkwi4-3.fna.fbcdn.net/v/t39.30808-6/586575534_1281043380727328_5024491874432849850_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=upqD1YznPUYQ7kNvwF9a6H-&_nc_oc=AdkCbEGSHVftfO0ZT0Nb__uLJovHm37ezoFqX89eatVHnEORsQTxboA095eAfJgZTYg&_nc_zt=23&_nc_ht=scontent.fkwi4-3.fna&_nc_gid=pHiwEs8whICAlslizk51kQ&oh=00_AfiNzIu16fnWJlF2Bj9Q2KQFPDy8MnDD3od38GIEVu4kcA&oe=692CBE2C" alt="Description of image">
+<a href="#contact" class="nav-btn">Get In Touch</a>
 
-                    </div>
-                </div>
-            </div>
-        </section>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+</div>
+</header>
 
-        <!-- Event Details -->
-        <section class="py-16 relative">
-            <div class="container mx-auto px-4">
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="info-card bg-white bg-opacity-5 backdrop-blur-xl rounded-2xl p-8 text-white border border-white border-opacity-10 slide-in" style="animation-delay: 1s;">
-                        <div class="flex items-start gap-6">
-                            <div class="bg-gradient-to-br from-purple-500 to-pink-500 p-4 rounded-2xl">
-                                <i class="fas fa-calendar-alt text-white text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                                    Date & Time
-                                </h3>
-                                <p class="text-xl mb-1">December 5, 2025</p>
-                                <p class="text-xl text-gray-300">4:00 PM onwards</p>
-                            </div>
-                        </div>
-                    </div>
+<!-- HERO -->
 
-                    <div class="info-card bg-white bg-opacity-5 backdrop-blur-xl rounded-2xl p-8 text-white border border-white border-opacity-10 slide-in" style="animation-delay: 1.2s;">
-  <div class="map-section">
-      <h3>📍 Event Location</h3>
-      <div class="map-link-container">
-          <i class="fas fa-map-marker-alt"></i>
-          <a href="https://maps.app.goo.gl/jScLhDD3SrkwULzJ7" target="_blank" class="map-link">
-            View on Google Maps
-          </a>
-      </div>
-      <p class="location-address">Indian Central School Open Auditorium (Abbassiya)</p>
-  </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="hero" id="home">
+<div class="container">
+<div class="hero-content reveal">
 
-        <!-- Performers Section -->
-        <section class="py-16 relative">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16 slide-in">
-                    <div class="bg-gradient-to-br from-purple-500 to-pink-500 p-4 rounded-2xl inline-block mb-6">
-                        <i class="fas fa-music text-white text-4xl"></i>
-                    </div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                        Featured Performers
-                    </h2>
-                    <p class="text-gray-300 text-xl">Star-Studded Musical Lineup</p>
-                </div>
-                
-                <div class="max-w-6xl mx-auto">
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="performer-card bg-white bg-opacity-5 backdrop-blur-xl rounded-2xl p-8 text-center border border-white border-opacity-10 bounce-in" style="animation-delay: 1.4s;">
-                            <div class="bg-gradient-to-br from-purple-500 to-pink-500 p-6 rounded-2xl inline-block mb-6">
-                                <i class="fas fa-users text-white text-4xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-white mb-3">Live Singers</h3>
-                            <p class="text-gray-300 text-lg">Renowned Artists</p>
-                        </div>
-                        
-                        <div class="performer-card bg-white bg-opacity-5 backdrop-blur-xl rounded-2xl p-8 text-center border border-white border-opacity-10 bounce-in" style="animation-delay: 1.6s;">
-                            <div class="bg-gradient-to-br from-blue-500 to-purple-500 p-6 rounded-2xl inline-block mb-6">
-                                <i class="fas fa-guitar text-white text-4xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-white mb-3">Live Band</h3>
-                            <p class="text-gray-300 text-lg">Professional Musicians</p>
-                        </div>
-                        
-                        <div class="performer-card bg-white bg-opacity-5 backdrop-blur-xl rounded-2xl p-8 text-center border border-white border-opacity-10 bounce-in" style="animation-delay: 1.8s;">
-                            <div class="bg-gradient-to-br from-pink-500 to-red-500 p-6 rounded-2xl inline-block mb-6">
-                                <i class="fas fa-compact-disc text-white text-4xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-white mb-3">DJ Performance</h3>
-                            <p class="text-gray-300 text-lg">Electrifying Mixes</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<div class="tag">LOW VOLTAGE • IT • SMART TECHNOLOGY</div>
 
-        <!-- Sponsor Section -->
-        <section class="py-16 bg-black bg-opacity-30 relative">
-            <div class="container mx-auto px-4 text-center">
-                <div class="slide-in" style="animation-delay: 2s;">
-                    <p class="text-gray-300 text-xl mb-6">Sponsored by</p>
-                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-12 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-                        Ahmed AL MAGHRIBI
-                    </h3>
-                    
-                    <div class="border-t border-gray-600 pt-12 mt-12">
-                        <p class="text-gray-300 text-xl mb-8">Powered by</p>
-                        <div class="flex flex-col items-center gap-6">
-                            <div class="w-32 h-32 bg-gradient-to-br from-white to-gray-300 rounded-full flex items-center justify-center shadow-2xl pulse-glow">
-                                <div class="text-center">
-                                    <div class="text-blue-600 font-bold text-sm">ROYAL</div>
-                                    <div class="text-red-600 font-bold text-sm">CITY</div>
-                                    <div class="text-green-600 font-bold text-sm">CLINIC</div>
-                                </div>
-                            </div>
-                            <h3 class="text-2xl md:text-3xl font-bold text-white">Royal City Clinic</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<h1>
+Engineering A<br>
+Smarter & <span>Safer</span><br>
+Future.
+</h1>
 
-        <!-- Footer -->
-        <footer class="bg-black bg-opacity-60 py-8 relative">
-            <div class="container mx-auto px-4 text-center">
-                <p class="text-gray-300 mb-2">Reg. No: INDEMB.KWT.ASSN.189</p>
-                <p class="text-gray-400 text-lg mb-2">www.keakuwait.com</p>
-                <p class="text-gray-400 text-lg mt-4">Contact: 66720062</p>
-                <div class="mt-6 pt-6 border-t border-gray-700">
-                    <p class="text-gray-500 text-sm">Created by <span class="text-yellow-400 font-semibold">Rafeek Olavara</span></p>
-                </div>
-            </div>
-        </footer>
-    </div>
+<p>
+Your trusted partner for advanced low voltage systems,
+security solutions, smart automation, networking and
+professional technology products.
+</p>
 
-    <script>
-        // Create background particles
-        function createParticles() {
-            const container = document.getElementById('particles-container');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'absolute rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-20';
-                
-                const size = Math.random() * 30 + 10;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                particle.style.animation = `floatParticle ${15 + Math.random() * 20}s linear infinite`;
-                particle.style.animationDelay = `${Math.random() * 5}s`;
-                
-                container.appendChild(particle);
-            }
+<div class="hero-buttons">
+<a href="#services" class="btn">Explore Solutions →</a>
+<a href="#contact" class="btn-outline">Contact Us</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+<div class="container about-grid">
+
+<div class="about-image reveal">
+<img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=900" alt="Technical installation">
+</div>
+
+<div class="about-text reveal">
+<div class="tag">ABOUT OUR COMPANY</div>
+<h2>Technology That Connects Everything.</h2>
+
+<p>
+We provide innovative low voltage and smart technology
+solutions for residential, commercial and industrial
+environments.
+</p>
+
+<p>
+From security and surveillance to networking and
+automation, our goal is to deliver reliable,
+efficient and future-ready solutions.
+</p>
+
+<div class="features">
+<div class="feature">✓ Professional Installation</div>
+<div class="feature">✓ Smart Solutions</div>
+<div class="feature">✓ Quality Products</div>
+<div class="feature">✓ Technical Support</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+<div class="container">
+
+<div class="section-heading reveal">
+<small>WHAT WE DO</small>
+<h2>Our Services</h2>
+<p>Complete technology solutions under one roof.</p>
+</div>
+
+<div class="service-grid">
+
+<div class="service-card reveal">
+<div class="service-icon">📹</div>
+<h3>CCTV & Surveillance</h3>
+<p>IP cameras, NVR systems, remote monitoring and advanced security solutions.</p>
+</div>
+
+<div class="service-card reveal">
+<div class="service-icon">🔐</div>
+<h3>Access Control</h3>
+<p>Biometric systems, card readers, door controllers and attendance solutions.</p>
+</div>
+
+<div class="service-card reveal">
+<div class="service-icon">🌐</div>
+<h3>Networking & Cabling</h3>
+<p>Structured cabling, fiber optics, LAN, Wi-Fi and network infrastructure.</p>
+</div>
+
+<div class="service-card reveal">
+<div class="service-icon">🏠</div>
+<h3>Smart Home Automation</h3>
+<p>Intelligent lighting, smart switches, sensors and home automation systems.</p>
+</div>
+
+<div class="service-card reveal">
+<div class="service-icon">📺</div>
+<h3>Audio Visual & LED</h3>
+<p>LED displays, video walls, conference rooms and professional AV systems.</p>
+</div>
+
+<div class="service-card reveal">
+<div class="service-icon">💻</div>
+<h3>IT Solutions & Support</h3>
+<p>Computer systems, IT accessories, troubleshooting and technical support.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PRODUCTS -->
+
+<section id="products">
+<div class="container">
+
+<div class="section-heading reveal">
+<small>OUR PRODUCTS</small>
+<h2>Technology Products</h2>
+<p>Explore our smart technology and IT product range.</p>
+</div>
+
+<div class="product-grid">
+
+<div class="product-card reveal">
+<img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600" alt="CCTV">
+<div class="product-info">
+<h3>Security Cameras</h3>
+<p>IP Cameras & NVR Systems</p>
+</div>
+</div>
+
+<div class="product-card reveal">
+<img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600" alt="Network">
+<div class="product-info">
+<h3>Networking</h3>
+<p>Switches, Routers & Accessories</p>
+</div>
+</div>
+
+<div class="product-card reveal">
+<img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600" alt="Smart home">
+<div class="product-info">
+<h3>Smart Gadgets</h3>
+<p>Smart Home & Automation</p>
+</div>
+</div>
+
+<div class="product-card reveal">
+<img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600" alt="Computer">
+<div class="product-info">
+<h3>Computer Accessories</h3>
+<p>IT Products & Peripherals</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+
+<section class="projects" id="projects">
+<div class="container">
+
+<div class="section-heading reveal">
+<small>OUR WORK</small>
+<h2>Featured Projects</h2>
+<p>Delivering reliable technology installations.</p>
+</div>
+
+<div class="project-grid">
+
+<div class="project reveal">
+<img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=800" alt="Security installation">
+<h3>Security Systems</h3>
+</div>
+
+<div class="project reveal">
+<img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800" alt="Network installation">
+<h3>Network Infrastructure</h3>
+</div>
+
+<div class="project reveal">
+<img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800" alt="Technical project">
+<h3>Technical Installations</h3>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- STATS -->
+
+<section class="stats">
+<div class="container stats-grid">
+
+<div class="stat">
+<h2>24/7</h2>
+<p>Technical Support</p>
+</div>
+
+<div class="stat">
+<h2>100%</h2>
+<p>Quality Focus</p>
+</div>
+
+<div class="stat">
+<h2>360°</h2>
+<p>Technology Solutions</p>
+</div>
+
+<div class="stat">
+<h2>1</h2>
+<p>Complete Solution Partner</p>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+<div class="container">
+
+<div class="section-heading reveal">
+<small>LET'S CONNECT</small>
+<h2>Ready To Upgrade Your Technology?</h2>
+<p>Contact us for projects, products and technical enquiries.</p>
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-info reveal">
+<h2>Let's Build Something Smart.</h2>
+
+<p>
+📍 Location: Kuwait<br>
+📞 Phone: +965 XXXXXXXX<br>
+✉ Email: info@yourcompany.com<br>
+🌐 Website: www.yourcompany.com
+</p>
+
+<a href="https://wa.me/96500000000"
+class="btn" target="_blank">WhatsApp Us →</a>
+</div>
+
+<form class="contact-form reveal" id="contactForm">
+
+<input type="text" id="name" placeholder="Your Name" required>
+
+<input type="email" id="email" placeholder="Email Address" required>
+
+<input type="tel" id="phone" placeholder="Phone Number">
+
+<textarea id="message" placeholder="Tell us about your requirements..." required></textarea>
+
+<button type="submit" class="btn">Send Enquiry →</button>
+
+</form>
+
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<h2>TECH<span>VISION.</span></h2>
+<p>Low Voltage Systems | Smart Technology | IT Solutions</p>
+<br>
+<p>© 2026 TECHVISION. All Rights Reserved.</p>
+</div>
+</footer>
+
+<a href="https://wa.me/96500000000"
+class="whatsapp" target="_blank" aria-label="WhatsApp">✆</a>
+
+<script>
+
+// MOBILE MENU
+
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("active");
+    });
+});
+
+// SCROLL ANIMATION
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add("show");
         }
-        
-        // Create floating music notes
-        function createMusicNotes() {
-            const container = document.getElementById('music-notes');
-            const notes = ['♪', '♫', '♬', '🎵', '🎶'];
-            
-            for (let i = 0; i < 12; i++) {
-                const note = document.createElement('div');
-                note.className = 'absolute text-purple-300 opacity-30 floating-note';
-                note.textContent = notes[Math.floor(Math.random() * notes.length)];
-                
-                note.style.left = `${Math.random() * 100}%`;
-                note.style.top = `${Math.random() * 100}%`;
-                note.style.fontSize = `${20 + Math.random() * 30}px`;
-                note.style.animationDuration = `${10 + Math.random() * 10}s`;
-                note.style.animationDelay = `${Math.random() * 5}s`;
-                
-                container.appendChild(note);
-            }
-        }
-        
-        // Countdown timer
-        function updateCountdown() {
-            const eventDate = new Date('2025-12-05T16:00:00');
-            const now = new Date().getTime();
-            const distance = eventDate - now;
-            
-            let days = 0, hours = 0, minutes = 0, seconds = 0;
-            
-            if (distance > 0) {
-                days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            }
-            
-            const countdownContainer = document.getElementById('countdown-timer');
-            const units = [
-                { value: days, label: 'days' },
-                { value: hours, label: 'hours' },
-                { value: minutes, label: 'minutes' },
-                { value: seconds, label: 'seconds' }
-            ];
-            
-            countdownContainer.innerHTML = '';
-            
-            units.forEach((unit, index) => {
-                const unitElement = document.createElement('div');
-                unitElement.className = `countdown-item bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl p-4 md:p-6 shadow-2xl`;
-                unitElement.style.animationDelay = `${0.8 + index * 0.1}s`;
-                
-                unitElement.innerHTML = `
-                    <div class="text-3xl md:text-5xl font-bold text-white mb-2 text-shadow-lg">
-                        ${String(unit.value).padStart(2, '0')}
-                    </div>
-                    <div class="text-sm md:text-base text-purple-200 uppercase font-semibold tracking-wider">
-                        ${unit.label}
-                    </div>
-                `;
-                
-                countdownContainer.appendChild(unitElement);
-            });
-        }
-        
-        // Audio control
-        function setupAudioControl() {
-            const audioControl = document.getElementById('audio-control');
-            let isPlaying = false;
-            
-            // Create audio element
-            const audio = new Audio('https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3');
-            audio.loop = true;
-            
-            audioControl.addEventListener('click', () => {
-                if (isPlaying) {
-                    audio.pause();
-                    audioControl.innerHTML = '<i class="fas fa-play"></i>';
-                } else {
-                    audio.play().catch(e => {
-                        console.log('Audio play failed:', e);
-                        // If autoplay is blocked, we'll just update the UI
-                        audioControl.innerHTML = '<i class="fas fa-volume-mute"></i>';
-                    });
-                    audioControl.innerHTML = '<i class="fas fa-pause"></i>';
-                }
-                isPlaying = !isPlaying;
-            });
-        }
-        
-        // Initialize everything when the page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            createMusicNotes();
-            updateCountdown();
-            setupAudioControl();
-            
-            // Update countdown every second
-            setInterval(updateCountdown, 1000);
-        });
-    </script>
+    });
+}, {threshold: 0.12});
+
+document.querySelectorAll(".reveal").forEach(el => {
+    observer.observe(el);
+});
+
+// WHATSAPP CONTACT FORM
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const message = document.getElementById("message").value;
+
+    const whatsappNumber = "96500000000";
+
+    const text = `New Website Enquiry
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Message: ${message}`;
+
+    window.open(
+        "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(text),
+        "_blank"
+    );
+});
+
+</script>
+
 </body>
 </html>
